@@ -8,11 +8,11 @@ export const SIGNUP_USER_FAILURE = 'SIGNUP_USER_FAILURE'
 export const postUser = (credentials, history) => dispatch => {
     dispatch({ type: SIGNUP_USER_START})
     axios
-        .post('/register', credentials)
+        .post('https://bw-expat-journal-ls.herokuapp.com/api/users/register', credentials)
         .then(res => {
             console.log(res)
             dispatch({ type: SIGNUP_USER_SUCCESS, payload: res.data})
-            history.push('/PLACEHOLDER')
+            history.push('/')
         })
         .catch(err => {
             console.log(`unable to register user data: ${err.message}`)
@@ -27,12 +27,12 @@ export const LOGIN_USER_SUCCESS = 'LOGIN_USER_SUCCESS'
 export const LOGIN_USER_FAILURE = 'LOGIN_USER_FAILURE'
 export const userLogin = (credentials, history) => dispatch => {
     dispatch({ type: LOGIN_USER_START})
-    axios
-        .post('/login', credentials)
+    axiosWithAuth()
+        .post('/users/login', credentials)
         .then(res => {
             console.log(res)
             dispatch({ type: LOGIN_USER_SUCCESS, payload: res.data})
-            history.push('/PLACEHOLDER')
+            history.push('/')
         })
         .catch(err => {
             console.log(`unable to load user data: ${err}`)
