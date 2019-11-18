@@ -1,16 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { NavBox, NavLinkBox, NavLinks, NavTitle } from './Styled.js'
+
 const NavBar = () => {
   return (
-    <>
-      <div>
-        <h1>Expat Journal</h1>
-      </div>
-      <div><Link to='/'>Home</Link></div>
-      <div><Link to=''>New Trip</Link></div>
-      <div><Link to=''>Profile</Link></div>
-    </>
+    <NavBox>
+      <NavLinkBox>
+        <NavTitle>Expat Journal</NavTitle>
+      </NavLinkBox>
+      <NavLinkBox>
+        <NavLinks to='/'>Home</NavLinks>
+        <NavLinks to=''>New Trip</NavLinks>
+        <NavLinks to=''>Profile</NavLinks>
+      </NavLinkBox>
+    </NavBox>
   )
 };
 
