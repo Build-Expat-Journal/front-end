@@ -11,12 +11,10 @@ function Login({ userLogin, history }) {
     const [credentials, setCredentials] = useState(initialCredentials)
 
     const handleChange = e => {
-        setCredentials(
-            {
+        setCredentials({
                 ...credentials,
                 [e.target.name]: e.target.value
-            }
-        )
+        })
     };
 
     const callLogin = e =>  {
@@ -29,7 +27,7 @@ function Login({ userLogin, history }) {
         <form onSubmit={callLogin}>
             <input
                 type="text"
-                name="userId"
+                name="username"
                 value={credentials.username}
                 placeholder="username"
                 onChange={handleChange}
