@@ -1,14 +1,16 @@
 import React from 'react';
 
+import { TripCards } from './Styled.js';
 
-const TripCard = () => {
+
+const TripCard = (props) => {
   return (
-    <>
-      <h1>{props.user.city}, {props.user.country}</h1>
-      <h2>{props.user.trip_title}</h2>
-      <img src={props.character.image} />
-      <p>{props.user.trip_desc}</p>
-    </>
+    <TripCards>
+      <h1>{props.trips.city}, {props.trips.country}</h1>
+      <h2>{props.trips.trip_title}</h2>
+      <img src={props.trips.img_url} alt={props.trips.city} />
+      <p>{props.trips.trip_desc}</p>
+    </TripCards>
   )
 };
 
