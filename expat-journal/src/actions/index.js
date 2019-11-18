@@ -47,7 +47,7 @@ export const FETCHING_TRIPS_FAILURE = 'FETCHING_TRIPS_FAILURE'
 export const fetchTrips = () => dispatch => {
     dispatch({ type: FETCHING_TRIPS_START})
     axiosWithAuth()
-        .get(`PLACEHOLDER`)
+        .get('/trips')
         .then(res => {
             console.log(res)
             dispatch({ type: FETCHING_TRIPS_SUCCESS, payload: res.data})
@@ -65,8 +65,8 @@ export const POSTING_TRIP_FAILURE = 'POSTING_TRIP_FAILURE'
 
 export const addTrip = newTrip => dispatch => {
     dispatch({ type: POSTING_TRIP_START });
-    axios
-      .post('PLACEHOLDER', newTrip)
+    axiosWithAuth()
+      .post('/trips', newTrip)
       .then(res => {
         dispatch({ type:  POSTING_TRIP_SUCCESS, payload: res.data });
       })
@@ -82,7 +82,7 @@ export const DELETING_TRIP_FAILURE = 'DELETING_TRIP_FAILURE'
 export const deleteTrip = (tripId) => dispatch => {
     dispatch({ type: DELETING_TRIP_START})
     axiosWithAuth()
-        .post(`PLACEHOLDER`)
+        .post(`/trips/${tripId}`)
         .then(res => {
             console.log(res)
             dispatch({ type: DELETING_TRIP_SUCCESS, payload: tripId})
@@ -100,7 +100,7 @@ export const UPDATING_TRIP_FAILURE = 'UPDATING_TRIP_FAILURE'
 export const updateTrip = (updatedTrip, tripId) => dispatch => {
     dispatch({ type: UPDATING_TRIP_START})
     axiosWithAuth()
-        .put(`PLACEHOLDER`, updatedTrip)
+        .put(`/trips/${tripId}`, updatedTrip)
         .then(res => {
             console.log(res)
             dispatch({ type: UPDATING_TRIP_SUCCESS, payload: updatedTrip})
