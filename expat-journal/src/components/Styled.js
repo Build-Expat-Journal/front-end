@@ -47,10 +47,12 @@ export const TripCards = styled.div`
   display:flex;
   flex-direction:column;
   align-items:center;
-  justify-content:space-between;
+  
+  justify-content:center;
   width: 30%;
   height: 250px;
   margin: 1%;
+  padding: 1% 0;
   background:white;
   box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.59);
 `
@@ -78,9 +80,9 @@ export const CardSubtitle = styled.h2`
   position: absolute;
   z-index: 999;
   left: 5px;
-  top: 13.5%;
+  top: 14%;
   background:white;
   color: gray;
-  font-size: 1em;
+  font-size: 0.8em;
   padding: 1%
 `
