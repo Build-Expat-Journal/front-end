@@ -40,73 +40,73 @@ export const userLogin = (credentials, history) => dispatch => {
         })
 };
 
-// get stories actions
-export const FETCHING_STORIES_START = 'FETCHING_STORIES_START'
-export const FETCHING_STORIES_SUCCESS = 'FETCHING_STORIES_SUCCESS'
-export const FETCHING_STORIES_FAILURE = 'FETCHING_STORIES_FAILURE'
-export const fetchStories = (userId) => dispatch => {
-    dispatch({ type: FETCHING_STORIES_START})
+// get trips actions
+export const FETCHING_TRIPS_START = 'FETCHING_TRIPS_START'
+export const FETCHING_TRIPS_SUCCESS = 'FETCHING_TRIPS_SUCCESS'
+export const FETCHING_TRIPS_FAILURE = 'FETCHING_TRIPS_FAILURE'
+export const fetchTrips = (userId) => dispatch => {
+    dispatch({ type: FETCHING_TRIPS_START})
     axiosWithAuth()
         .get(`PLACEHOLDER`)
         .then(res => {
             console.log(res)
-            dispatch({ type: FETCHING_STORIES_SUCCESS, payload: res.data})
+            dispatch({ type: FETCHING_TRIPS_SUCCESS, payload: res.data})
         })
         .catch(err => {
-            console.log(`unable to load stories data: ${err}`)
-            dispatch({ type: FETCHING_STORIES_FAILURE, payload: err})
+            console.log(`unable to load trips data: ${err}`)
+            dispatch({ type: FETCHING_TRIPS_FAILURE, payload: err})
         })
 };
 
-// post story actions
-export const POSTING_STORY_START = 'POSTING_STORY_START'
-export const POSTING_STORY_SUCCESS = 'POSTING_STORY_SUCCESS'
-export const POSTING_STORY_FAILURE = 'POSTING_STORY_FAILURE'
+// post trip actions
+export const POSTING_TRIP_START = 'POSTING_TRIP_START'
+export const POSTING_TRIP_SUCCESS = 'POSTING_TRIP_SUCCESS'
+export const POSTING_TRIP_FAILURE = 'POSTING_TRIP_FAILURE'
 
-export const addStory = newStory => dispatch => {
-    dispatch({ type: POSTING_STORY_START });
+export const addTrip = newTrip => dispatch => {
+    dispatch({ type: POSTING_TRIP_START });
     axios
-      .post('PLACEHOLDER', newStory)
+      .post('PLACEHOLDER', newTrip)
       .then(res => {
-        dispatch({ type:  POSTING_STORY_SUCCESS, payload: res.data });
+        dispatch({ type:  POSTING_TRIP_SUCCESS, payload: res.data });
       })
       .catch(err => {
-        dispatch({ type: POSTING_STORY_FAILURE, payload: err });
+        dispatch({ type: POSTING_TRIP_FAILURE, payload: err });
       });
   };
 
-// delete story actions
-export const DELETING_STORY_START = 'DELETING_STORY_START'
-export const DELETING_STORY_SUCCESS = 'DELETING_STORY_SUCCESS'
-export const DELETING_STORY_FAILURE = 'DELETING_STORY_FAILURE'
-export const deleteStory = (storyId) => dispatch => {
-    dispatch({ type: DELETING_STORY_START})
+// delete trip actions
+export const DELETING_TRIP_START = 'DELETING_TRIP_START'
+export const DELETING_TRIP_SUCCESS = 'DELETING_TRIP_SUCCESS'
+export const DELETING_TRIP_FAILURE = 'DELETING_TRIP_FAILURE'
+export const deleteTrip = (tripId) => dispatch => {
+    dispatch({ type: DELETING_TRIP_START})
     axiosWithAuth()
         .post(`PLACEHOLDER`)
         .then(res => {
             console.log(res)
-            dispatch({ type: DELETING_STORY_SUCCESS, payload: storyId})
+            dispatch({ type: DELETING_TRIP_SUCCESS, payload: tripId})
         })
         .catch(err => {
-            console.log(`unable to delete story data: ${err}`)
-            dispatch({ type: DELETING_STORY_FAILURE, payload: err})
+            console.log(`unable to delete trip data: ${err}`)
+            dispatch({ type: DELETING_TRIP_FAILURE, payload: err})
         })
 };
 
-// update story actions
-export const UPDATING_STORY_START = 'UPDATING_STORY_START'
-export const UPDATING_STORY_SUCCESS = 'UPDATING_STORY_SUCCESS'
-export const UPDATING_STORY_FAILURE = 'UPDATING_STORY_FAILURE'
-export const updateStory = (updatedStory, storyId) => dispatch => {
-    dispatch({ type: UPDATING_STORY_START})
+// update trip actions
+export const UPDATING_TRIP_START = 'UPDATING_TRIP_START'
+export const UPDATING_TRIP_SUCCESS = 'UPDATING_TRIP_SUCCESS'
+export const UPDATING_TRIP_FAILURE = 'UPDATING_TRIP_FAILURE'
+export const updateTrip = (updatedTrip, tripId) => dispatch => {
+    dispatch({ type: UPDATING_TRIP_START})
     axiosWithAuth()
-        .put(`PLACEHOLDER`, updatedStory)
+        .put(`PLACEHOLDER`, updatedTrip)
         .then(res => {
             console.log(res)
-            dispatch({ type: UPDATING_STORY_SUCCESS, payload: updatedStory})
+            dispatch({ type: UPDATING_TRIP_SUCCESS, payload: updatedTrip})
         })
         .catch(err => {
-            console.log(`unable to update story data: ${err}`)
-            dispatch({ type: UPDATING_STORY_FAILURE, payload: err})
+            console.log(`unable to update trip data: ${err}`)
+            dispatch({ type: UPDATING_TRIP_FAILURE, payload: err})
         })
 };

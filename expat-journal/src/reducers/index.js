@@ -5,23 +5,23 @@ import {
     LOGIN_USER_START,
     LOGIN_USER_SUCCESS,
     LOGIN_USER_FAILURE,
-    FETCHING_STORIES_START,
-    FETCHING_STORIES_SUCCESS,
-    FETCHING_STORIES_FAILURE,
-    POSTING_STORY_START,
-    POSTING_STORY_SUCCESS,
-    POSTING_STORY_FAILURE,
-    DELETING_STORY_START,
-    DELETING_STORY_SUCCESS,
-    DELETING_STORY_FAILURE,
-    UPDATING_STORY_START,
-    UPDATING_STORY_SUCCESS,
-    UPDATING_STORY_FAILURE
-  } from "../actions";
+    FETCHING_TRIPS_START,
+    FETCHING_TRIPS_SUCCESS,
+    FETCHING_TRIPS_FAILURE,
+    POSTING_TRIP_START,
+    POSTING_TRIP_SUCCESS,
+    POSTING_TRIP_FAILURE,
+    DELETING_TRIP_START,
+    DELETING_TRIP_SUCCESS,
+    DELETING_TRIP_FAILURE,
+    UPDATING_TRIP_START,
+    UPDATING_TRIP_SUCCESS,
+    UPDATING_TRIP_FAILURE
+  } from '../actions';
   
   const initialState = {
     userId: null,
-    stories: [],
+    trips: [],
     error: '',
     isFetching: false
   };
@@ -64,84 +64,84 @@ import {
                 isFetching: true,
                 error: `Error: Unable to load user: ${action.payload}`
             }
-        case FETCHING_STORIES_START:
+        case FETCHING_TRIPS_START:
             return {
                 ...state,
                 isFetching: true,
                 error: ''
             }
-        case FETCHING_STORIES_SUCCESS:
+        case FETCHING_TRIPS_SUCCESS:
             return {
             ...state,
             error: '',
             isFetching: false,
-            stories: action.payload
+            trips: action.payload
             };
-        case FETCHING_STORIES_FAILURE:
+        case FETCHING_TRIPS_FAILURE:
             return {
             ...state,
-            error: `Error: Unable to load stories: ${action.payload}`,
+            error: `Error: Unable to load trips: ${action.payload}`,
             isFetching: false
             };
-        case POSTING_STORY_START:
+        case POSTING_TRIP_START:
             return {
             ...state,
             isFetching: true,
             error: ''
             };
-        case POSTING_STORY_SUCCESS:
+        case POSTING_TRIP_SUCCESS:
             return {
             ...state,
-            stories: action.payload,
+            trips: action.payload,
             isFetching: false,
             error: ''
             };
-        case POSTING_STORY_FAILURE:
+        case POSTING_TRIP_FAILURE:
             return {
             ...state,
             isFetching: false,
-            error: `Error: Unable to add story: ${action.payload}`
+            error: `Error: Unable to add trip: ${action.payload}`
             };
-        case DELETING_STORY_START:
+        case DELETING_TRIP_START:
             return {
             ...state,
             isFetching: true,
             error: ''
             }
-        case DELETING_STORY_SUCCESS:
+        case DELETING_TRIP_SUCCESS:
             return {
             ...state,
             isFetching: false,
             error: '' 
             }
-        case DELETING_STORY_FAILURE:
+        case DELETING_TRIP_FAILURE:
             return {
             ...state,
             isFetching: false,
-            error: `Error: Unable to delete story: ${action.payload}` 
+            error: `Error: Unable to delete trip: ${action.payload}` 
             }
-        case UPDATING_STORY_START:
+        case UPDATING_TRIP_START:
             return {
                 ...state,
                 isFetching: true,
                 error: ''
             }
-        case UPDATING_STORY_SUCCESS:
+        case UPDATING_TRIP_SUCCESS:
             return {
                 ...state,
                 isFetching: false,
-                stories: state.stories.map(story => {
-                    if (story.storyId === action.payload.storyId) {
+                trips: state.trips.map(trip => {
+                    if (trip.tripId === action.payload.tripId) {
                         return action.payload
                     }
-                    return story
+                    return trip;
                 })
             }
-        case UPDATING_STORY_FAILURE:
+        case UPDATING_TRIP_FAILURE:
             return {
                 ...state,
                 isFetching: false,
-                error: `Error: Unable to update story: ${action.payload}`
+                error: `Error: Unable to update trip: ${action.payload}`
             }
     
         default:
