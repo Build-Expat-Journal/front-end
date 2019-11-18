@@ -9,8 +9,7 @@ const initialCredentials = {
     confirmPassword: '',
     first_name: '',
     last_name: '',
-    email: ''
-}
+};
 
 function SignUp({ postUser, history }) {
 
@@ -46,13 +45,6 @@ function SignUp({ postUser, history }) {
                     name="lastName"
                     value={credentials.last_name}
                     placeholder="last name"
-                    onChange={handleChange}
-                />
-                <input
-                    type="email"
-                    name="email"
-                    value={credentials.email}
-                    placeholder="email"
                     onChange={handleChange}
                 />
                 <input

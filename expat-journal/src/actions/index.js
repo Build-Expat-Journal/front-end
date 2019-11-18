@@ -8,7 +8,7 @@ export const SIGNUP_USER_FAILURE = 'SIGNUP_USER_FAILURE'
 export const postUser = (credentials, history) => dispatch => {
     dispatch({ type: SIGNUP_USER_START})
     axios
-        .post('PLACEHOLDER', credentials)
+        .post('/register', credentials)
         .then(res => {
             console.log(res)
             dispatch({ type: SIGNUP_USER_SUCCESS, payload: res.data})
@@ -28,7 +28,7 @@ export const LOGIN_USER_FAILURE = 'LOGIN_USER_FAILURE'
 export const userLogin = (credentials, history) => dispatch => {
     dispatch({ type: LOGIN_USER_START})
     axios
-        .post('PLACEHOLDER', credentials)
+        .post('/login', credentials)
         .then(res => {
             console.log(res)
             dispatch({ type: LOGIN_USER_SUCCESS, payload: res.data})
@@ -44,7 +44,7 @@ export const userLogin = (credentials, history) => dispatch => {
 export const FETCHING_TRIPS_START = 'FETCHING_TRIPS_START'
 export const FETCHING_TRIPS_SUCCESS = 'FETCHING_TRIPS_SUCCESS'
 export const FETCHING_TRIPS_FAILURE = 'FETCHING_TRIPS_FAILURE'
-export const fetchTrips = (userId) => dispatch => {
+export const fetchTrips = () => dispatch => {
     dispatch({ type: FETCHING_TRIPS_START})
     axiosWithAuth()
         .get(`PLACEHOLDER`)
