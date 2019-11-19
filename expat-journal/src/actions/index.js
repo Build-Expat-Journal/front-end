@@ -44,10 +44,10 @@ export const userLogin = (credentials, history) => dispatch => {
 export const FETCHING_TRIPS_START = 'FETCHING_TRIPS_START'
 export const FETCHING_TRIPS_SUCCESS = 'FETCHING_TRIPS_SUCCESS'
 export const FETCHING_TRIPS_FAILURE = 'FETCHING_TRIPS_FAILURE'
-export const fetchTrips = () => dispatch => {
+export const fetchTrips = (user_id) => dispatch => {
     dispatch({ type: FETCHING_TRIPS_START})
     axiosWithAuth()
-        .get('/trips')
+        .get(`/users/${user_id}/trips`)
         .then(res => {
             console.log(res)
             dispatch({ type: FETCHING_TRIPS_SUCCESS, payload: res.data})
