@@ -2,12 +2,12 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Route, Redirect } from 'react-router-dom'
 
-const PrivateRoute = ({ userId, component: Component, ...rest }) => {
+const PrivateRoute = ({ username, component: Component, ...rest }) => {
   return (
     <Route
       {...rest}
       render={(props) => {
-        if (localStorage.getItem('token') && userId) {
+        if (localStorage.getItem('token') && username) {
           return <Component {...props}/>
         } else {
           return <Redirect to='/login' />
@@ -19,7 +19,7 @@ const PrivateRoute = ({ userId, component: Component, ...rest }) => {
 
 const mapStateToProps = state => {
   return {
-    userId: state.userId,
+    username: state.username,
   }
 }
 

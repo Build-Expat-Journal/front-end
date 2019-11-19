@@ -4,17 +4,19 @@ import { deleteTrip } from '../actions';
 import { TripCards, ImageBox, ImageStyle, CardLocation, CardSubtitle, CardText, StyledBtn } from './Styled.js';
 
 
-const TripCard = ({ trips }) => {
-  console.log('card props', trips.id)
+const TripCard = (props) => {
+
   const handleClick = e => {
-    e.preventdefault();
-  }
+    e.preventDefault();
+    props.deleteTrip(props.trips.id)
+  };
+  
   return (
     <TripCards>
-      <ImageBox><ImageStyle src="https://source.unsplash.com/random" alt={trips.city} /></ImageBox>
-      <CardLocation>{trips.city}, {trips.country}</CardLocation>
-      <CardSubtitle>{trips.trip_title}</CardSubtitle>
-      <CardText>{trips.trip_desc}</CardText>
+      <ImageBox><ImageStyle src="https://source.unsplash.com/random" alt={props.trips.city} /></ImageBox>
+      <CardLocation>{props.trips.city}, {props.trips.country}</CardLocation>
+      <CardSubtitle>{props.trips.trip_title}</CardSubtitle>
+      <CardText>{props.trips.trip_desc}</CardText>
       <StyledBtn onClick={handleClick}>x</StyledBtn>
     </TripCards>
   )
