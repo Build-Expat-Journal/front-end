@@ -80,7 +80,7 @@ export const CardSubtitle = styled.h2`
   position: absolute;
   z-index: 999;
   left: 5px;
-  top: 14%;
+  top: 13%;
   background:white;
   color: gray;
   font-size: 0.8em;
