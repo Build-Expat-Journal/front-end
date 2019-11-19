@@ -1,16 +1,24 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { deleteTrip } from '../actions'; 
+import { TripCards, ImageBox, ImageStyle, CardLocation, CardSubtitle, CardText, StyledBtn } from './Styled.js';
 
-import { TripCards, ImageBox, ImageStyle, CardLocation, CardSubtitle } from './Styled.js';
 
-const TripCard = (props) => {
+const TripCard = ({ trips }) => {
+  console.log('card props', trips.id)
+  const handleClick = e => {
+    e.preventdefault();
+  }
   return (
     <TripCards>
-      <ImageBox><ImageStyle src="https://source.unsplash.com/random" alt={props.trips.city} /></ImageBox>
-      <CardLocation>{props.trips.city}, {props.trips.country}</CardLocation>
-      <CardSubtitle>{props.trips.trip_title}</CardSubtitle>
-      <p>{props.trips.trip_desc}</p>
+      <ImageBox><ImageStyle src="https://source.unsplash.com/random" alt={trips.city} /></ImageBox>
+      <CardLocation>{trips.city}, {trips.country}</CardLocation>
+      <CardSubtitle>{trips.trip_title}</CardSubtitle>
+      <CardText>{trips.trip_desc}</CardText>
+      <StyledBtn onClick={handleClick}>x</StyledBtn>
     </TripCards>
   )
 };
 
-export default TripCard;
+
+export default connect(null, { deleteTrip })(TripCard);

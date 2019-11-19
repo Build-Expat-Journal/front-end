@@ -5,11 +5,10 @@ import { postUser } from '../actions';
 import { SignUpBox, StyledForm, StyledInput, StyledButton, StyledH2 } from './Styled.js';
 
 const initialCredentials = {
-  username: '',
-  password: '',
-  confirmPassword: '',
-  first_name: '',
-  last_name: '',
+    username: '',
+    password: '',
+    first_name: '',
+    last_name: '',
 };
 
 function SignUp({ postUser, history }) {
@@ -17,13 +16,11 @@ function SignUp({ postUser, history }) {
   const [credentials, setCredentials] = useState(initialCredentials);
 
   const handleChange = e => {
-    setCredentials(
-      {
-        ...credentials,
-        [e.target.name]: e.target.value
-      }
-    );
-  };
+        setCredentials({
+            ...credentials, 
+            [e.target.name]: e.target.value
+        });
+    };
 
   const callSignUp = e => {
     e.preventDefault();
@@ -80,6 +77,8 @@ const mapStateToProps = state => {
     isFetching: state.isFetching,
     error: state.error
   }
+
 }
 
 export default connect(mapStateToProps, { postUser })(SignUp)
+

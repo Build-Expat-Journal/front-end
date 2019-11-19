@@ -20,7 +20,7 @@ import {
   } from '../actions';
   
   const initialState = {
-    userId: null,
+    user_id: null,
     trips: [],
     error: '',
     isFetching: false
