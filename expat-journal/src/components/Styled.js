@@ -120,6 +120,8 @@ export const LoginBox = styled.div`
   background: rgba(33,64,73, 0.8);
   margin-top:15%;
   margin-left:25%;
+  border: 2px solid rgb(33,64,73);
+  box-shadow: 8px 10px 5px 0px rgba(0,0,0,0.59);
 `
 export const SignUpBox = styled.div`
   display:flex;
@@ -132,6 +134,8 @@ export const SignUpBox = styled.div`
   background: rgba(33,64,73, 0.8);
   margin-top:15%;
   margin-left:5%;
+  border: 2px solid rgb(33,64,73);
+  box-shadow: 8px 10px 5px 0px rgba(0,0,0,0.59);
 `
 export const StyledForm = styled.form`
   display:flex;
@@ -148,15 +152,55 @@ export const StyledInput = styled.input`
 `
 export const StyledButton = styled.button`
   width: 112%;
-  height: 15%;
+  height: 20%;
   font-size: 0.8em;
   margin: 0 -6%;
   margin-bottom: -10%;
 `
 export const StyledButtonTwo = styled.button`
   width: 112%;
-  height: 15%;
+  height: 20%;
   font-size: 0.8em;
   margin: 0 -6%;
   margin-bottom: -20%;
+`
+
+//NEW TRIP FORM STYLING
+export const Div1 = styled.div`
+  display:flex;
+  flex-direction: column;
+  justify-content:space-around;
+  align-items:center;
+  min-width: 100vw;
+  min-height: 100vh;
+`
+export const TripFormBox = styled.div`
+  display:flex;
+  flex-direction: column;
+  justify-content:space-around;
+  align-items:center;
+  height: 500px;
+  width: 400px;
+  background: rgba(33,64,73, 0.8);
+  border: 2px solid rgb(33,64,73);
+  box-shadow: 8px 10px 5px 0px rgba(0,0,0,0.59);
+`
+export const TripStyledForm = styled.form`
+  display:flex;
+  flex-direction:column;
+  justify-content:space-around;
+  height: 65%;
+  width: 80%;
+`
+export const StyledInputTwo = styled.input`
+  height: 30px;
+  border-radius: 3px;
+  font-size: 0.8em;
+  background:#f5f5f5;
+`
+export const StoryInput = styled.input`
+  height: 60px;
+  border-radius: 3px;
+  font-size: 0.8em;
+  background:#f5f5f5;
 `
