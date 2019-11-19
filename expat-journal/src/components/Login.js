@@ -20,6 +20,7 @@ function Login({ userLogin, history }) {
     const callLogin = e =>  {
         e.preventDefault();
         userLogin(credentials, history);
+        history.push('/trips')
     };
 
     return (

@@ -1,6 +1,10 @@
 import React from 'react';
 
-export const SplashPage = () => {
-  <div>
-  </div>
+const SplashPage = () => {
+  return (
+    <h1>Splashy Splash</h1>
+  )
+
 }
+
+export default SplashPage;
