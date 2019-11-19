@@ -23,7 +23,6 @@ function Login({ userLogin, history }) {
     const callLogin = e =>  {
         e.preventDefault();
         userLogin(credentials, history);
-        history.push('/trips')
     };
 
   return (
@@ -32,7 +31,7 @@ function Login({ userLogin, history }) {
       <StyledForm onSubmit={callLogin}>
         <StyledInput
           type="text"
-          name="userId"
+          name="username"
           value={credentials.username}
           placeholder="username"
           onChange={handleChange}

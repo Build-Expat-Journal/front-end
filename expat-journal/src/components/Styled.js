@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
@@ -160,6 +159,48 @@ export const StyledButtonTwo = styled.button`
   font-size: 0.8em;
   margin: 0 -6%;
   margin-bottom: -20%;
+`
+
+
+//NEW TRIP FORM STYLING
+export const Div1 = styled.div`
+  display:flex;
+  flex-direction: column;
+  justify-content:space-around;
+  align-items:center;
+  min-width: 100vw;
+  min-height: 100vh;
+`
+export const TripFormBox = styled.div`
+  display:flex;
+  flex-direction: column;
+  justify-content:space-around;
+  align-items:center;
+  height: 500px;
+  width: 400px;
+  background: rgba(33,64,73, 0.8);
+  border: 2px solid rgb(33,64,73);
+  box-shadow: 8px 10px 5px 0px rgba(0,0,0,0.59);
+`
+export const TripStyledForm = styled.form`
+  display:flex;
+  flex-direction:column;
+  justify-content:space-around;
+  height: 65%;
+  width: 80%;
+`
+export const StyledInputTwo = styled.input`
+  height: 30px;
+  border-radius: 3px;
+  font-size: 0.8em;
+  background:#f5f5f5;
+`
+export const StoryInput = styled.input`
+  height: 60px;
+  border-radius: 3px;
+  font-size: 0.8em;
+  background:#f5f5f5;
+  `
 
 export const CardText = styled.p`
   position: absolute;
@@ -169,7 +210,7 @@ export const CardText = styled.p`
   background:white;
   color: gray;
   font-size: 0.8em;
-  padding: 1%
+  padding: 1%;
 `
 export const PhotoCard = styled.img`
   margin: 10px;
@@ -180,4 +221,13 @@ export const StyledBtn = styled.button`
   background: white;
   right: 12px;
   top: 10px;
+`
+export const TripButton = styled.button`
+  background: #f5f5f5;
+  height: 15%;
+  font-size: 1em;
+  border-radius: 3px;
+  width: 125%;
+  margin: 0 -12%;
+  margin-bottom: -10%;
 `
