@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
 import { postUser } from '../actions';
+import { SignUpBox, StyledForm, StyledInput, StyledButton, StyledH2 } from './Styled.js';
 
 const initialCredentials = {
     username: '',
@@ -12,59 +13,72 @@ const initialCredentials = {
 
 function SignUp({ postUser, history }) {
 
-    const [credentials, setCredentials] = useState(initialCredentials);
+  const [credentials, setCredentials] = useState(initialCredentials);
 
-    const handleChange = e => {
+  const handleChange = e => {
         setCredentials({
             ...credentials, 
             [e.target.name]: e.target.value
         });
     };
 
-    const callSignUp = e => {
-        e.preventDefault();
-        postUser(credentials, history);
-    };
+  const callSignUp = e => {
+    e.preventDefault();
+    postUser(credentials, history);
+  };
 
-    return (
-        <div>
-            <h2>Create an Account</h2>
-            <form onSubmit={callSignUp} onChange={handleChange}>
-                <input
-                    type="text"
-                    name="first_name"
-                    value={credentials.first_name}
-                    placeholder="first name"
-                />
-                <input
-                    type="text"
-                    name="last_name"
-                    value={credentials.last_name}
-                    placeholder="last name"
-                />
-                <input
-                    type="text"
-                    name="username"
-                    value={credentials.username}
-                    placeholder="username"
-                />
-                <input
-                    type="password"
-                    name="password"
-                    value={credentials.password}
-                    placeholder="password"
-                />
-                <button>Sign Up</button>
-            </form>
-        </div>
-    )
+  return (
+    <SignUpBox>
+      <StyledH2>Create an Account</StyledH2>
+      <StyledForm onSubmit={callSignUp}>
+        <StyledInput
+          type="text"
+          name="firstName"
+          value={credentials.first_name}
+          placeholder="first name"
+          onChange={handleChange}
+        />
+        <StyledInput
+          type="text"
+          name="lastName"
+          value={credentials.last_name}
+          placeholder="last name"
+          onChange={handleChange}
+        />
+        <StyledInput
+          type="text"
+          name="username"
+          value={credentials.username}
+          placeholder="login name"
+          onChange={handleChange}
+        />
+        <StyledInput
+          type="password"
+          name="password"
+          value={credentials.password}
+          placeholder="password"
+          onChange={handleChange}
+        />
+        <StyledInput
+          type="password"
+          name="confirmPassword"
+          value={credentials.confirmPassword}
+          placeholder='confirm password'
+          onChange={handleChange}
+        />
+        <StyledButton>Sign Up</StyledButton>
+      </StyledForm>
+    </SignUpBox>
+  )
 }
 
 const mapStateToProps = state => {
-    return {
-      isFetching: state.isFetching,
-      error: state.error
-    }
+  return {
+    isFetching: state.isFetching,
+    error: state.error
   }
-  
-  export default connect(mapStateToProps, { postUser })(SignUp);
+
+}
+
+export default connect(mapStateToProps, { postUser })(SignUp)
+

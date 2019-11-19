@@ -1,9 +1,19 @@
 import React from 'react';
 
+import SignUp from './SignUp';
+import Login from './Login';
+import { MapPic } from './Styled.js';
+
 const SplashPage = () => {
   return (
-    <h1>Splashy Splash</h1>
-  )
+    <>
+      <MapPic>
+        <Login />
+        <SignUp />
+      </MapPic>
+
+    </>
+  );
 
 }
 

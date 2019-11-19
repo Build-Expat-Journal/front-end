@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { GridHolder } from './Styled.js'
 import TripCard from './TripCard';
 
+
 const TripGrid = () => {
   const [trips, setTrip] = useState([])
 
@@ -20,6 +21,7 @@ const TripGrid = () => {
   };
 
   return (
+
     <GridHolder onClick={handleClick}>
       {trips.map((trips, id) => {
         return <TripCard key={id} trips={trips} />;

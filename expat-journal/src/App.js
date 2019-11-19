@@ -14,6 +14,7 @@ function App() {
   return (
     <div className="App">
       <NavBar />
+    
       <Route path='/trips' component={TripGrid} />
       <Route path='/SplashPage' component={SplashPage} />
       <Route path='/login' component={Login} />

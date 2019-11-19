@@ -9,7 +9,6 @@ const TripCard = ({ trips }) => {
   const handleClick = e => {
     e.preventdefault();
   }
-
   return (
     <TripCards>
       <ImageBox><ImageStyle src="https://source.unsplash.com/random" alt={trips.city} /></ImageBox>

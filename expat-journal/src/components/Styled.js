@@ -2,6 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+import img from './img/map1.png';
+
+//MAIN STYLES
+export const StyledH2 = styled.h2`
+  color:#f5f5f5;
+`
+
 //NAV STYLES
 export const NavTitle = styled.h1`
   margin:1% 5%;
@@ -28,7 +35,7 @@ export const NavLinks = styled(Link)`
   color: black;
 `
 export const LinkBoxes = styled.div`
-  background-color:white;
+  background-color:#f5f5f5;
   padding: 0.5%;
   margin: 0 0.5%;
   width:30%;
@@ -86,6 +93,74 @@ export const CardSubtitle = styled.h2`
   font-size: 0.8em;
   padding: 1%
 `
+
+
+//SPLASH PAGE STYLING
+export const MapPic = styled.div`
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: -15%;
+  margin-left: -25%;
+  background-image: url(${img});
+  min-height: 100vh;
+  min-width: 100vw;
+  padding-bottom: 15%;
+`
+
+//LOGIN STYLING
+export const LoginBox = styled.div`
+  display:flex;
+  flex-direction: column;
+  justify-content:space-around;
+  align-items:center;
+  height:400px;
+  width: 300px;
+  border-radius: 3px;
+  background: rgba(33,64,73, 0.8);
+  margin-top:15%;
+  margin-left:25%;
+`
+export const SignUpBox = styled.div`
+  display:flex;
+  flex-direction: column;
+  justify-content:space-around;
+  align-items:center;
+  height:400px;
+  width: 300px;
+  border-radius: 3px;
+  background: rgba(33,64,73, 0.8);
+  margin-top:15%;
+  margin-left:5%;
+`
+export const StyledForm = styled.form`
+  display:flex;
+  flex-direction:column;
+  justify-content:space-around;
+  height: 65%;
+  width: 90%;
+`
+export const StyledInput = styled.input`
+  height: 20px;
+  border-radius: 3px;
+  font-size: 0.8em;
+  background:#f5f5f5;
+`
+export const StyledButton = styled.button`
+  width: 112%;
+  height: 15%;
+  font-size: 0.8em;
+  margin: 0 -6%;
+  margin-bottom: -10%;
+`
+export const StyledButtonTwo = styled.button`
+  width: 112%;
+  height: 15%;
+  font-size: 0.8em;
+  margin: 0 -6%;
+  margin-bottom: -20%;
+
 export const CardText = styled.p`
   position: absolute;
   z-index: 999;
