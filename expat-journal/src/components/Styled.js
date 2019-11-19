@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+import img from './img/map1.png';
+
 //NAV STYLES
 export const NavTitle = styled.h1`
   margin:1% 5%;
@@ -85,4 +87,63 @@ export const CardSubtitle = styled.h2`
   color: gray;
   font-size: 0.8em;
   padding: 1%
+`
+
+//SPLASH PAGE STYLING
+export const MapPic = styled.div`
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: -15%;
+  margin-left: -25%;
+  background-image: url(${img});
+  min-height: 100vh;
+  min-width: 100vw;
+  padding-bottom: 15%;
+`
+
+//LOGIN STYLING
+export const LoginBox = styled.div`
+  display:flex;
+  flex-direction: column;
+  justify-content:space-around;
+  align-items:center;
+  height:400px;
+  width: 300px;
+  border-radius: 3px;
+  background: rgba(33,64,73, 0.8);
+  margin-top:15%;
+  margin-left:25%;
+`
+export const SignUpBox = styled.div`
+  display:flex;
+  flex-direction: column;
+  justify-content:space-around;
+  align-items:center;
+  height:400px;
+  width: 300px;
+  border-radius: 3px;
+  background: rgba(33,64,73, 0.8);
+  margin-top:15%;
+  margin-left:5%;
+`
+export const StyledForm = styled.form`
+  display:flex;
+  flex-direction:column;
+  justify-content:space-around;
+  height: 65%;
+  width: 90%;
+`
+export const StyledInput = styled.input`
+  height: 20px;
+  border-radius: 3px;
+  font-size: 0.8em;
+`
+export const StyledButton = styled.button`
+  width: 112%;
+  height: 15%;
+  font-size: 0.8em;
+  margin: 0 -6%;
+  margin-bottom: -10%;
 `

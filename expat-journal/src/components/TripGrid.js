@@ -5,6 +5,7 @@ import { GridHolder } from './Styled.js'
 import TripCard from './TripCard';
 
 
+
 const TripGrid = props => {
   const [newTrip, setNewTrip] = useState([])
 
@@ -17,6 +18,7 @@ const TripGrid = props => {
   }, []);
 
   return (
+
     <GridHolder>
       {newTrip.map((trips, id) => {
         return <TripCard key={id} trips={trips} />;

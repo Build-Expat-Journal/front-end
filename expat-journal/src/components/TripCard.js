@@ -2,7 +2,6 @@ import React from 'react';
 
 import { TripCards, ImageBox, ImageStyle, CardLocation, CardSubtitle } from './Styled.js';
 
-
 const TripCard = (props) => {
   return (
     <TripCards>
