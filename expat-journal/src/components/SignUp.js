@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
 import { postUser } from '../actions';
-import { SignUpBox, StyledForm, StyledInput, StyledButton } from './Styled.js';
+import { SignUpBox, StyledForm, StyledInput, StyledButton, StyledH2 } from './Styled.js';
 
 const initialCredentials = {
   username: '',
@@ -32,7 +32,7 @@ function SignUp({ postUser, history }) {
 
   return (
     <SignUpBox>
-      <h2>Create an Account</h2>
+      <StyledH2>Create an Account</StyledH2>
       <StyledForm onSubmit={callSignUp}>
         <StyledInput
           type="text"

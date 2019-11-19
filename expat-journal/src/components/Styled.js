@@ -4,6 +4,11 @@ import { Link } from 'react-router-dom';
 
 import img from './img/map1.png';
 
+//MAIN STYLES
+export const StyledH2 = styled.h2`
+  color:#f5f5f5;
+`
+
 //NAV STYLES
 export const NavTitle = styled.h1`
   margin:1% 5%;
@@ -30,7 +35,7 @@ export const NavLinks = styled(Link)`
   color: black;
 `
 export const LinkBoxes = styled.div`
-  background-color:white;
+  background-color:#f5f5f5;
   padding: 0.5%;
   margin: 0 0.5%;
   width:30%;
@@ -139,6 +144,7 @@ export const StyledInput = styled.input`
   height: 20px;
   border-radius: 3px;
   font-size: 0.8em;
+  background:#f5f5f5;
 `
 export const StyledButton = styled.button`
   width: 112%;
@@ -146,4 +152,11 @@ export const StyledButton = styled.button`
   font-size: 0.8em;
   margin: 0 -6%;
   margin-bottom: -10%;
+`
+export const StyledButtonTwo = styled.button`
+  width: 112%;
+  height: 15%;
+  font-size: 0.8em;
+  margin: 0 -6%;
+  margin-bottom: -20%;
 `

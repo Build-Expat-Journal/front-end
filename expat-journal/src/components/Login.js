@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { userLogin } from '../actions';
 
-import { LoginBox, StyledForm, StyledInput, StyledButton } from './Styled.js';
+import { LoginBox, StyledForm, StyledInput, StyledButtonTwo, StyledH2 } from './Styled.js';
 
 const initialCredentials = {
   username: '',
@@ -28,7 +28,7 @@ function Login({ userLogin, history }) {
 
   return (
     <LoginBox>
-      <h2>Log In</h2>
+      <StyledH2>Log In</StyledH2>
       <StyledForm onSubmit={callLogin}>
         <StyledInput
           type="text"
@@ -44,7 +44,7 @@ function Login({ userLogin, history }) {
           placeholder="password"
           onChange={handleChange}
         />
-        <StyledButton>Log in</StyledButton>
+        <StyledButtonTwo>Log in</StyledButtonTwo>
       </StyledForm>
     </LoginBox>
 
