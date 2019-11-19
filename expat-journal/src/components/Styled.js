@@ -24,7 +24,7 @@ export const NavBox = styled.div`
 export const NavLinkBox = styled.div`
   display:flex;
   flex-direction:row;
-  juistify-content:space-between;
+  justify-content:space-between;
   align-content:space-between;
   width: 25%;
 `
@@ -55,7 +55,7 @@ export const TripCards = styled.div`
   flex-direction:column;
   align-items:center;
   
-  justify-content:center;
+  /* justify-content:center; */
   width: 30%;
   height: 250px;
   margin: 1%;
@@ -72,7 +72,7 @@ export const ImageStyle = styled.img`
   left: 2.5%;
   object-fit: cover;
   width: 95%;
-  Height: 95%;
+  height: 95%;
 `
 export const CardLocation = styled.h1`
   position: absolute;
@@ -93,6 +93,7 @@ export const CardSubtitle = styled.h2`
   font-size: 0.8em;
   padding: 1%
 `
+
 
 //SPLASH PAGE STYLING
 export const MapPic = styled.div`
@@ -159,4 +160,24 @@ export const StyledButtonTwo = styled.button`
   font-size: 0.8em;
   margin: 0 -6%;
   margin-bottom: -20%;
+
+export const CardText = styled.p`
+  position: absolute;
+  z-index: 999;
+  left: 5px;
+  top: 25%;
+  background:white;
+  color: gray;
+  font-size: 0.8em;
+  padding: 1%
+`
+export const PhotoCard = styled.img`
+  margin: 10px;
+`
+export const StyledBtn = styled.button`
+  position: absolute;
+  z-index: 999;
+  background: white;
+  right: 12px;
+  top: 10px;
 `

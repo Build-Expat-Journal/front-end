@@ -11,21 +11,20 @@ const initialCredentials = {
 
 function Login({ userLogin, history }) {
 
-  const [credentials, setCredentials] = useState(initialCredentials)
+    const [credentials, setCredentials] = useState(initialCredentials)
 
-  const handleChange = e => {
-    setCredentials(
-      {
-        ...credentials,
-        [e.target.name]: e.target.value
-      }
-    )
-  };
+    const handleChange = e => {
+        setCredentials({
+                ...credentials,
+                [e.target.name]: e.target.value
+        })
+    };
 
-  const callLogin = e => {
-    e.preventDefault();
-    userLogin(credentials, history);
-  };
+    const callLogin = e =>  {
+        e.preventDefault();
+        userLogin(credentials, history);
+        history.push('/trips')
+    };
 
   return (
     <LoginBox>
