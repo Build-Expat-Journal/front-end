@@ -1,0 +1,12 @@
+{
+    "version": 2,
+    "name": "texpat-journal",
+    "builds": [
+      {
+        "src": "expat-journal/package.json",
+        "use": "@now/static-build",
+        "config": { "distDir": "build" }
+      }
+    ],
+    "routes": [{ "src": "/(.*)", "dest": "expat-app/$1" }]
+  }
