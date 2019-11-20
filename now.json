@@ -8,5 +8,8 @@
         "config": { "distDir": "build" }
       }
     ],
-    "routes": [{ "src": "/(.*)", "dest": "expat-app/$1" }]
+    "routes": [
+        { "src": "/(.*)", "dest": "expat-app/$1" },
+        { "src": "/(.*)", "dest": "expat-journal/index.html" }
+    ]
   }
