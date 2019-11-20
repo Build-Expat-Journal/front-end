@@ -20,14 +20,12 @@ const NavBar = () => {
           <LinkBoxes><NavLinks to='/Trips'>Trips</NavLinks></LinkBoxes>
           <LinkBoxes><NavLinks to='/NewTrip'>New Trip</NavLinks></LinkBoxes>
           <LinkBoxes><NavLinks to='/photos'>Pictures</NavLinks></LinkBoxes>
-          <LinkBoxes><NavLinks to='/UpdateTrip'>Update Trip</NavLinks></LinkBoxes>
         </NavLinkBox>
       </NavBox>
 
       <Route exact path='/' component={SplashPage} />
       <Route exact path='/Trips' component={TripGrid} />
       <Route exact path='/NewTrip' component={NewTripForm} />
-      <Route exact path='/UpdateTrip' component={NewUpdateTripForm} />
     </>
   )
 };
