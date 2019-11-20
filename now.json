@@ -1,6 +1,6 @@
 {
     "version": 2,
-    "name": "texpat-journal",
+    "name": "expat-journal",
     "builds": [
       {
         "src": "expat-journal/package.json",
@@ -9,7 +9,7 @@
       }
     ],
     "routes": [
-        { "src": "/(.*)", "dest": "expat-app/$1" },
+        { "src": "/(.*)", "dest": "expat-journal/$1" },
         { "src": "/(.*)", "dest": "expat-journal/index.html" }
     ]
-  }
+}
