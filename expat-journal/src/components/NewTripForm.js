@@ -2,29 +2,21 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { addTrip } from '../actions';
 import { TripButton, StoryInput, StyledH2, Div1, TripFormBox, TripStyledForm, StyledInputTwo } from './Styled.js';
-
 const initialTrip = {
-    trip_title: '',
-    country: '',
-    city: '',
-    trip_desc: '',
-    user_id: 1
+  trip_title: '',
+  country: '',
+  city: '',
+  trip_desc: ''
 }
-
-const NewTripForm = ({ addTrip }) => {
+const NewTripForm = () => {
   const [newTrip, setNewTrip] = useState(initialTrip)
-
   const handleChanges = event => {
     setNewTrip({ ...newTrip, [event.target.name]: event.target.value })
   }
-
   const submitHandler = event => {
-    event.preventDefault();
-    addTrip(newTrip);
-    console.log(newTrip);
+    event.preventDefault()
+    addTrip(newTrip)
   }
-
-
   return (
     <Div1>
       <TripFormBox>
@@ -43,6 +35,7 @@ const NewTripForm = ({ addTrip }) => {
             name='country'
             value={newTrip.country}
             placeholder='Country'
+            required
           />
           <StyledInputTwo
             onChange={handleChanges}
@@ -64,13 +57,11 @@ const NewTripForm = ({ addTrip }) => {
     </Div1>
   )
 }
-
 const mapStateToProps = state => {
-    return {
-        trips: state.trips,
-        isFetching: state.isFetching,
-        error: state.error
-    }
+  return {
+    trips: state.trips,
+    isFetching: state.isFetching,
+    error: state.error
+  }
 };
-
 export default connect(mapStateToProps, { addTrip })(NewTripForm);

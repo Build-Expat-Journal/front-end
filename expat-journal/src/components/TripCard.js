@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { deleteTrip } from '../actions'; 
-import { TripCards, ImageBox, ImageStyle, CardLocation, CardSubtitle, CardText, StyledBtn } from './Styled.js';
-
+import { deleteTrip } from '../actions';
+import { TripCards, ImageBox, ImageStyle, CardLocation, CardSubtitle, CardText, StyledBtn, StyledBtn2 } from './Styled.js';
+import NewUpdateTripForm from './UpdateTripForm';
 
 const TripCard = (props) => {
 
@@ -10,7 +10,7 @@ const TripCard = (props) => {
     e.preventDefault();
     props.deleteTrip(props.trips.id)
   };
-  
+
   return (
     <TripCards>
       <ImageBox><ImageStyle src="https://source.unsplash.com/random" alt={props.trips.city} /></ImageBox>
@@ -18,6 +18,7 @@ const TripCard = (props) => {
       <CardSubtitle>{props.trips.trip_title}</CardSubtitle>
       <CardText>{props.trips.trip_desc}</CardText>
       <StyledBtn onClick={handleClick}>x</StyledBtn>
+      <StyledBtn2>Update Trip</StyledBtn2>
     </TripCards>
   )
 };

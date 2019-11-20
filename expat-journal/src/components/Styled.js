@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { withFormik, Form, Field } from "formik";
 
 import img from './img/map1.png';
 
@@ -120,6 +121,8 @@ export const LoginBox = styled.div`
   background: rgba(33,64,73, 0.8);
   margin-top:15%;
   margin-left:25%;
+  border: 2px solid rgb(33,64,73);
+  box-shadow: 8px 10px 5px 0px rgba(0,0,0,0.59);
 `
 export const SignUpBox = styled.div`
   display:flex;
@@ -132,6 +135,8 @@ export const SignUpBox = styled.div`
   background: rgba(33,64,73, 0.8);
   margin-top:15%;
   margin-left:5%;
+  border: 2px solid rgb(33,64,73);
+  box-shadow: 8px 10px 5px 0px rgba(0,0,0,0.59);
 `
 export const StyledForm = styled.form`
   display:flex;
@@ -148,19 +153,18 @@ export const StyledInput = styled.input`
 `
 export const StyledButton = styled.button`
   width: 112%;
-  height: 15%;
+  height: 20%;
   font-size: 0.8em;
   margin: 0 -6%;
   margin-bottom: -10%;
 `
 export const StyledButtonTwo = styled.button`
   width: 112%;
-  height: 15%;
+  height: 20%;
   font-size: 0.8em;
   margin: 0 -6%;
   margin-bottom: -20%;
 `
-
 
 //NEW TRIP FORM STYLING
 export const Div1 = styled.div`
@@ -219,7 +223,14 @@ export const StyledBtn = styled.button`
   position: absolute;
   z-index: 999;
   background: white;
-  right: 12px;
+  right: 15px;
+  top: 10px;
+`
+export const StyledBtn2 = styled.button`
+  position: absolute;
+  z-index: 999;
+  background: white;
+  right: 40px;
   top: 10px;
 `
 export const TripButton = styled.button`
@@ -230,4 +241,21 @@ export const TripButton = styled.button`
   width: 125%;
   margin: 0 -12%;
   margin-bottom: -10%;
+`
+
+//UPDATE TRIP FORM STYLING
+export const UpdateForm = styled(Form)`
+  display:flex;
+  flex-direction:column;
+  justify-content:space-around;
+  margin: 10% 40%;
+  height: 300px;
+  width: 400px;
+`
+export const UpdateField = styled(Field)`
+  height: 20px;
+  border-radius: 3px;
+  padding: 5px 0;
+  font-size: 0.8em;
+  background:#f5f5f5;
 `
