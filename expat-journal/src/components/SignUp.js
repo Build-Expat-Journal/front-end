@@ -33,14 +33,14 @@ function SignUp({ postUser, history }) {
       <StyledForm onSubmit={callSignUp}>
         <StyledInput
           type="text"
-          name="firstName"
+          name="first_name"
           value={credentials.first_name}
           placeholder="first name"
           onChange={handleChange}
         />
         <StyledInput
           type="text"
-          name="lastName"
+          name="last_name"
           value={credentials.last_name}
           placeholder="last name"
           onChange={handleChange}
@@ -57,13 +57,6 @@ function SignUp({ postUser, history }) {
           name="password"
           value={credentials.password}
           placeholder="password"
-          onChange={handleChange}
-        />
-        <StyledInput
-          type="password"
-          name="confirmPassword"
-          value={credentials.confirmPassword}
-          placeholder='confirm password'
           onChange={handleChange}
         />
         <StyledButton>Sign Up</StyledButton>

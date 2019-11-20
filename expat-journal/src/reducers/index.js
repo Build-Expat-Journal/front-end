@@ -20,7 +20,7 @@ import {
   } from '../actions';
   
   const initialState = {
-    user_id: null,
+    username: null,
     trips: [],
     error: '',
     isFetching: false
@@ -38,7 +38,7 @@ import {
             return {
                 ...state,
                 isFetching: false,
-                userId: action.payload
+                username: action.payload
             }
         case SIGNUP_USER_FAILURE:
             return {
@@ -56,7 +56,7 @@ import {
             return {
                 ...state,
                 isFetching: true,
-                userId: action.payload
+                username: action.payload
             }
         case LOGIN_USER_FAILURE:
             return {

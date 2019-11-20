@@ -1,6 +1,6 @@
-import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { withFormik, Form, Field } from "formik";
 
 import img from './img/map1.png';
 
@@ -164,7 +164,6 @@ export const StyledButtonTwo = styled.button`
   font-size: 0.8em;
   margin: 0 -6%;
   margin-bottom: -20%;
-<<<<<<< HEAD
 `
 
 //NEW TRIP FORM STYLING
@@ -224,7 +223,14 @@ export const StyledBtn = styled.button`
   position: absolute;
   z-index: 999;
   background: white;
-  right: 12px;
+  right: 15px;
+  top: 10px;
+`
+export const StyledBtn2 = styled.button`
+  position: absolute;
+  z-index: 999;
+  background: white;
+  right: 40px;
   top: 10px;
 `
 export const TripButton = styled.button`
@@ -235,4 +241,21 @@ export const TripButton = styled.button`
   width: 125%;
   margin: 0 -12%;
   margin-bottom: -10%;
+`
+
+//UPDATE TRIP FORM STYLING
+export const UpdateForm = styled(Form)`
+  display:flex;
+  flex-direction:column;
+  justify-content:space-around;
+  margin: 10% 40%;
+  height: 300px;
+  width: 400px;
+`
+export const UpdateField = styled(Field)`
+  height: 20px;
+  border-radius: 3px;
+  padding: 5px 0;
+  font-size: 0.8em;
+  background:#f5f5f5;
 `

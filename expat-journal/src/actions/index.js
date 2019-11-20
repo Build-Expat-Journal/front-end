@@ -12,7 +12,6 @@ export const postUser = (credentials, history) => dispatch => {
         .then(res => {
             console.log(res)
             dispatch({ type: SIGNUP_USER_SUCCESS, payload: res.data})
-            history.push('/')
         })
         .catch(err => {
             console.log(`unable to register user data: ${err.message}`)
@@ -32,7 +31,6 @@ export const userLogin = (credentials, history) => dispatch => {
         .then(res => {
             console.log(res)
             dispatch({ type: LOGIN_USER_SUCCESS, payload: res.data})
-            history.push('/')
         })
         .catch(err => {
             console.log(`unable to load user data: ${err}`)
@@ -68,6 +66,7 @@ export const addTrip = newTrip => dispatch => {
     axiosWithAuth()
       .post('/trips', newTrip)
       .then(res => {
+          console.log('new receipt res', res)
         dispatch({ type:  POSTING_TRIP_SUCCESS, payload: res.data });
       })
       .catch(err => {
@@ -82,10 +81,10 @@ export const DELETING_TRIP_FAILURE = 'DELETING_TRIP_FAILURE'
 export const deleteTrip = (tripId) => dispatch => {
     dispatch({ type: DELETING_TRIP_START})
     axiosWithAuth()
-        .post(`/trips/${tripId}`)
+        .delete(`/trips/${tripId}`)
         .then(res => {
             console.log(res)
-            dispatch({ type: DELETING_TRIP_SUCCESS, payload: tripId})
+            dispatch({ type: DELETING_TRIP_SUCCESS, payload: res.data})
         })
         .catch(err => {
             console.log(`unable to delete trip data: ${err}`)

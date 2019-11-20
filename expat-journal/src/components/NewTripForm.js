@@ -35,6 +35,7 @@ const NewTripForm = () => {
             name='country'
             value={newTrip.country}
             placeholder='Country'
+            required
           />
           <StyledInputTwo
             onChange={handleChanges}
