@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
 import { GridHolder } from './Styled.js'
 import TripCard from './TripCard';
 
 
-const TripGrid = () => {
+const TripGrid = (props) => {
   const [trips, setTrip] = useState([])
 
   useEffect(() => {
@@ -17,7 +16,7 @@ const TripGrid = () => {
   }, []);
 
   const handleClick = e => {
-    return <Redirect to='/photos' />
+    return props.history.push('/photos')
   };
 
   return (

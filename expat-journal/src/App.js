@@ -3,8 +3,8 @@ import './App.css';
 import { Route } from 'react-router-dom'
 
 //components
-import SignUp from './components/SignUp';
 import Login from './components/Login';
+import SignUp from './components/SignUp';
 import NavBar from './components/NavBar';
 import TripGrid from './components/TripGrid';
 import Photos from './components/Photos';
@@ -18,7 +18,7 @@ function App() {
     <div className="App">
       <NavBar />
       <Route path='/newtrip' component={NewTripForm} />
-      <Route path='/SplashPage' component={SplashPage} />
+      <Route exact path='/' component={SplashPage} />
       <Route path='/login' component={Login} />
       <Route path='/signup' component={SignUp} />
       <PrivateRoute path='/photos' component={Photos} />
