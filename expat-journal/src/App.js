@@ -18,7 +18,7 @@ function App() {
     <div className="App">
       <NavBar />
       <Route path='/newtrip' component={NewTripForm} />
-      <Route path='/SplashPage' component={SplashPage} />
+      <Route path='/' component={SplashPage} />
       <Route path='/login' component={Login} />
       <Route path='/signup' component={SignUp} />
       <PrivateRoute path='/photos' component={Photos} />
