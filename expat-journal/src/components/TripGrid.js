@@ -16,14 +16,14 @@ const TripGrid = (props) => {
   }, []);
 
   const handleClick = e => {
-    return props.history.push('/photos')
+    // return props.history.push('/photos')
   };
 
   return (
 
     <GridHolder onClick={handleClick}>
       {trips.map((trips, id) => {
-        return <TripCard key={id} trips={trips} />;
+        return <TripCard key={id} trips={trips} history={props.history}/>;
       })}
     </GridHolder>
   )

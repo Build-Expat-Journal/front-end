@@ -2,21 +2,28 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { addTrip } from '../actions';
 import { TripButton, StoryInput, StyledH2, Div1, TripFormBox, TripStyledForm, StyledInputTwo } from './Styled.js';
+
 const initialTrip = {
   trip_title: '',
   country: '',
   city: '',
-  trip_desc: ''
-}
-const NewTripForm = () => {
-  const [newTrip, setNewTrip] = useState(initialTrip)
+  trip_desc: '',
+  user_id: 1
+};
+
+const NewTripForm = (props) => {
+  const [newTrip, setNewTrip] = useState(initialTrip);
+  
   const handleChanges = event => {
     setNewTrip({ ...newTrip, [event.target.name]: event.target.value })
-  }
+  };
+
   const submitHandler = event => {
-    event.preventDefault()
-    addTrip(newTrip)
-  }
+    event.preventDefault();
+    props.addTrip(newTrip);
+    props.history.push('/trips');
+  };
+
   return (
     <Div1>
       <TripFormBox>
@@ -56,7 +63,8 @@ const NewTripForm = () => {
       </TripFormBox>
     </Div1>
   )
-}
+};
+
 const mapStateToProps = state => {
   return {
     trips: state.trips,

@@ -1,67 +1,97 @@
-import React, { useState, useEffect } from "react";
-import { withFormik, Form, Field } from "formik";
-import * as Yup from "yup";
-import axios from "axios";
-import { StyledH2, UpdateForm, UpdateField } from './Styled.js';
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import { editTrip } from '../actions';
+import { TripButton, StoryInput, StyledH2, Div1, TripFormBox, TripStyledForm, StyledInputTwo } from './Styled.js';
+import useForm from '../utils/useForm';
+import { axiosWithAuth } from '../utils/axiosWithAuth';
 
-const UpdateTripForm = ({ values, errors, touched, status }) => {
-  const [updateTrip, setUpdateTrip] = useState([]);
-  useEffect(() => {
-    status && setUpdateTrip(updateTrip => [...updateTrip, status]);
-  }, [status]);
+const initialTrip = {
+  trip_title: '',
+  country: '',
+  city: '',
+  trip_desc: '',
+  user_id: 1
+};
+
+const UpdateTripForm = (props) => {
+  const [updatedTrip, setUpdatedTrip] = useState(initialTrip);
+  console.log('props', props)
+
+  // const [updatedTrip, handleChange, clearForm, setUpdatedTrip] = useForm();
+
+  // useEffect(() => {
+  //   axios.get(`https://bw-expat-journal-ls.herokuapp.com/api/trips/${props.trips.id}`)
+  //     .then(res => {
+  //       console.log('res from edittrip', res)
+  //       setUpdatedTrip(res.data)
+  //     })
+  //     .catch(err => console.log(err))
+  // }, [])
+
+  const submitHandler = event => {
+    event.preventDefault();
+    axiosWithAuth().put(`/trips/${props.trips.id}`, updatedTrip)
+      .then(res => {
+        console.log('put res', res)
+        props.history.push('/trips')
+      })
+      .catch(err => console.log(err))
+  };
+  
+  const handleChange = e => {
+    e.persist();
+    setUpdatedTrip({
+      ...updatedTrip,
+      [e.target.name]: e.target.value
+    })
+  };
 
   return (
-    <div>
-      <StyledH2>New Trip</StyledH2>
-      <UpdateForm>
-        <UpdateField type='text' name='trip_title' placeholder='Trip Title' />
-        {touched.trip_title && errors.trip_title && (
-          <p>{errors.trip_title}</p>
-        )}
-
-        <UpdateField type='text' name='country' placeholder='Country' />
-        {touched.country && errors.country && (
-          <p>{errors.country}</p>
-        )}
-
-        <UpdateField type='text' name='city' placeholder='City' />
-        {touched.city && errors.city && (
-          <p>{errors.city}</p>
-        )}
-
-        <UpdateField as='textarea' type='text' name='trip_desc' placeholder='Trip Story' />
-        {touched.trip_desc && errors.trip_desc && (
-          <p>{errors.trip_desc}</p>
-        )}
-
-        <button type='submit'>Submit</button>
-      </UpdateForm>
-    </div>
+    <Div1>
+      <TripFormBox>
+        <StyledH2>Edit Trip</StyledH2>
+        <TripStyledForm onSubmit={submitHandler}>
+          <StyledInputTwo
+            onChange={handleChange}
+            type='text'
+            name='trip_title'
+            value={updatedTrip.title}
+            placeholder='Trip Title'
+          />
+          <StyledInputTwo
+            onChange={handleChange}
+            type='text'
+            name='country'
+            value={updatedTrip.country}
+            placeholder='Country'
+            required
+          />
+          <StyledInputTwo
+            onChange={handleChange}
+            type='text'
+            name='city'
+            value={updatedTrip.city}
+            placeholder='City'
+          />
+          <StoryInput
+            onChange={handleChange}
+            type='textarea'
+            name='trip_desc'
+            value={updatedTrip.trip_desc}
+            placeholder='Trip Story'
+          />
+          <TripButton type='submit'>Submit</TripButton>
+        </TripStyledForm>
+      </TripFormBox>
+    </Div1>
   )
-}
-const NewUpdateTripForm = withFormik({
-  mapPropsToValues({ trip_title, country, city, trip_desc }) {
-    return {
-      trip_title: trip_title || '',
-      country: country || '',
-      city: city || '',
-      trip_desc: trip_desc || ''
-    }
-  },
-  validationSchema: Yup.object().shape({
-    trip_title: Yup.string().required('Trip title is a required field!'),
-    country: Yup.string().required('Country is a required field!'),
-    city: Yup.string().required('City is a required field!'),
-    trip_desc: Yup.string().required('Trip story is a required field!')
-  }),
-  handleSubmit(values, { setStatus }) {
-    axios
-      .post('', values)
-      .then(response => {
-        setStatus(response.data);
-      })
-      .catch(error => console.log(error.response));
-  }
-})(UpdateTripForm);
+};
 
-export default NewUpdateTripForm;
+const mapStateToProps = state => {
+  return {
+    trips: state.trips,
+    isFetching: state.isFetching,
+    error: state.error
+  }
+};
+export default connect(mapStateToProps, { editTrip })(UpdateTripForm);

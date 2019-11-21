@@ -9,8 +9,8 @@ const initialCredentials = {
   password: ''
 }
 
-function Login({ userLogin, history }) {
-
+function Login(props, { userLogin, history }) {
+  
     const [credentials, setCredentials] = useState(initialCredentials)
 
     const handleChange = e => {
@@ -22,7 +22,8 @@ function Login({ userLogin, history }) {
 
     const callLogin = e =>  {
         e.preventDefault();
-        userLogin(credentials, history);
+        props.userLogin(credentials, history);
+        props.history.push('/trips')
     };
 
   return (
