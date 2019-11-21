@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { editTrip } from '../actions';
 import { TripButton, StoryInput, StyledH2, Div1, TripFormBox, TripStyledForm, StyledInputTwo } from './Styled.js';
-import axios from 'axios';
 import useForm from '../utils/useForm';
+import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 const initialTrip = {
   trip_title: '',
@@ -14,25 +14,36 @@ const initialTrip = {
 };
 
 const UpdateTripForm = (props) => {
-  // const [updatedTrip, setUpdatedTrip] = useState(initialTrip);
-  console.log('props.trips.id', props.trips.id)
-  
-  const [updatedTrip, handleChange, clearForm, setUpdatedTrip] = useForm();
+  const [updatedTrip, setUpdatedTrip] = useState(initialTrip);
+  console.log('props', props)
 
-  useEffect(() => {
-    axios.get(`https://bw-expat-journal-ls.herokuapp.com/api/trips/${props.trips.id}`)
-      .then(res => {
-        console.log('res from edittrip', res)
-        setUpdatedTrip(res.data)
-      })
-      .catch(err => console.log(err))
-  }, [])
+  // const [updatedTrip, handleChange, clearForm, setUpdatedTrip] = useForm();
+
+  // useEffect(() => {
+  //   axios.get(`https://bw-expat-journal-ls.herokuapp.com/api/trips/${props.trips.id}`)
+  //     .then(res => {
+  //       console.log('res from edittrip', res)
+  //       setUpdatedTrip(res.data)
+  //     })
+  //     .catch(err => console.log(err))
+  // }, [])
 
   const submitHandler = event => {
     event.preventDefault();
-    props.editTrip(updatedTrip);
-    clearForm();
-    props.history.push('/trips');
+    axiosWithAuth().put(`/trips/${props.trips.id}`, updatedTrip)
+      .then(res => {
+        console.log('put res', res)
+        props.history.push('/trips')
+      })
+      .catch(err => console.log(err))
+  };
+  
+  const handleChange = e => {
+    e.persist();
+    setUpdatedTrip({
+      ...updatedTrip,
+      [e.target.name]: e.target.value
+    })
   };
 
   return (
