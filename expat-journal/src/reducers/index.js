@@ -16,7 +16,10 @@ import {
     DELETING_TRIP_FAILURE,
     UPDATING_TRIP_START,
     UPDATING_TRIP_SUCCESS,
-    UPDATING_TRIP_FAILURE
+    UPDATING_TRIP_FAILURE,
+    POSTING_PHOTO_START,
+    POSTING_PHOTO_SUCCESS,
+    POSTING_PHOTO_FAILURE
   } from '../actions';
   
   const initialState = {
@@ -143,6 +146,25 @@ import {
                 isFetching: false,
                 error: `Error: Unable to update trip: ${action.payload}`
             }
+        case POSTING_PHOTO_START:
+            return {
+            ...state,
+            isFetching: true,
+            error: ''
+            };
+        case POSTING_PHOTO_SUCCESS:
+            return {
+            ...state,
+            trips: action.payload,
+            isFetching: false,
+            error: ''
+            };
+        case POSTING_PHOTO_FAILURE:
+            return {
+            ...state,
+            isFetching: false,
+            error: `Error: Unable to add photo: ${action.payload}`
+            };
     
         default:
             return state;

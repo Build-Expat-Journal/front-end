@@ -30,6 +30,7 @@ export const userLogin = (credentials, history) => dispatch => {
         .post('/users/login', credentials)
         .then(res => {
             console.log(res)
+            localStorage.setItem('token', res.data.token)
             dispatch({ type: LOGIN_USER_SUCCESS, payload: res.data})
         })
         .catch(err => {
@@ -42,10 +43,10 @@ export const userLogin = (credentials, history) => dispatch => {
 export const FETCHING_TRIPS_START = 'FETCHING_TRIPS_START'
 export const FETCHING_TRIPS_SUCCESS = 'FETCHING_TRIPS_SUCCESS'
 export const FETCHING_TRIPS_FAILURE = 'FETCHING_TRIPS_FAILURE'
-export const fetchTrips = (user_id) => dispatch => {
+export const fetchTrips = (tripId) => dispatch => {
     dispatch({ type: FETCHING_TRIPS_START})
     axiosWithAuth()
-        .get(`/users/${user_id}/trips`)
+        .get(`/trips/${tripId}`)
         .then(res => {
             console.log(res)
             dispatch({ type: FETCHING_TRIPS_SUCCESS, payload: res.data})
@@ -66,11 +67,30 @@ export const addTrip = newTrip => dispatch => {
     axiosWithAuth()
       .post('/trips', newTrip)
       .then(res => {
-          console.log('new receipt res', res)
+          console.log('new trip res', res)
         dispatch({ type:  POSTING_TRIP_SUCCESS, payload: res.data });
       })
       .catch(err => {
         dispatch({ type: POSTING_TRIP_FAILURE, payload: err });
+      });
+  };
+
+
+//post photo actions 
+export const POSTING_PHOTO_START = 'POSTING_PHOTO_START'
+export const POSTING_PHOTO_SUCCESS = 'POSTING_PHOTO_SUCCESS'
+export const POSTING_PHOTO_FAILURE = 'POSTING_PHOTO_FAILURE'
+
+export const addPhoto = newPhoto => dispatch => {
+    dispatch({ type: POSTING_TRIP_START });
+    axiosWithAuth()
+      .post('/photos', newPhoto)
+      .then(res => {
+          console.log('new photo res', res)
+        dispatch({ type:  POSTING_PHOTO_SUCCESS, payload: res.data });
+      })
+      .catch(err => {
+        dispatch({ type: POSTING_PHOTO_FAILURE, payload: err });
       });
   };
 
@@ -96,7 +116,7 @@ export const deleteTrip = (tripId) => dispatch => {
 export const UPDATING_TRIP_START = 'UPDATING_TRIP_START'
 export const UPDATING_TRIP_SUCCESS = 'UPDATING_TRIP_SUCCESS'
 export const UPDATING_TRIP_FAILURE = 'UPDATING_TRIP_FAILURE'
-export const updateTrip = (updatedTrip, tripId) => dispatch => {
+export const editTrip = (updatedTrip, tripId) => dispatch => {
     dispatch({ type: UPDATING_TRIP_START})
     axiosWithAuth()
         .put(`/trips/${tripId}`, updatedTrip)
