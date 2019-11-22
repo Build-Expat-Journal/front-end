@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { GridHolder, PhotoCard } from './Styled.js';
+import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 const initialPhoto = {
     trip_id: 11,
@@ -9,34 +10,41 @@ const initialPhoto = {
     user_id: 1
 }
 
-const Photos = (props) => {
+const Photos = () => {
     const [photos, setPhotos] = useState([])
     const [newPhoto, setNewPhoto] = useState(initialPhoto)
+
     useEffect(() => {
-        axios.get('https://bw-expat-journal-ls.herokuapp.com/api/photos')
+        axiosWithAuth().get('/photos')
         .then(response => {
             console.log('photos response', response)
           setPhotos(response.data)
         })
     }, [])
-    console.log('photos', photos)
+
     const handleChanges = event => {
         setNewPhoto({ ...newPhoto, [event.target.name]: event.target.value })
       };
+
     const submitHandler = e => {
         e.preventDefault();
         axios.post('https://bw-expat-journal-ls.herokuapp.com/api/photos', newPhoto)
             .then(res => console.log('photo res', res))
     }
-    const deletePhoto = e => {
-    //     axios.delete(`https://bw-expat-journal-ls.herokuapp.com/api/photos/${photos.id}`)
-    //         .then(console.log('delete photo success'))
-    //         .catch(err => console.log(err))
+
+    const deletePhoto = () => {
+        // console.log(photos)
+        // axios.delete(`https://bw-expat-journal-ls.herokuapp.com/api/photos/${photos.id}`, photos.id)
+        //     .then(res => {
+        //         console.log('delete photo success', res)
+        //     })
+        //     .catch(err => console.log(err))
      }
+
     return (
         <div>
             <GridHolder>
-                {photos.map((photo, id) => <PhotoCard key={id} width='500' height='300' src={photo.img_url} onDoubleClick={deletePhoto}/>)}
+                {photos.map((photo, id) => <PhotoCard key={id} width='500' height='300' id={photo.id} src={photo.img_url} onDoubleClick={deletePhoto}/>)}
             </GridHolder>
             <div className='photo-form'>
                 <form onSubmit={submitHandler}>

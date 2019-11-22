@@ -30,6 +30,7 @@ export const userLogin = (credentials, history) => dispatch => {
         .post('/users/login', credentials)
         .then(res => {
             console.log(res)
+            localStorage.setItem('userID', res.data.id)
             localStorage.setItem('token', res.data.token)
             dispatch({ type: LOGIN_USER_SUCCESS, payload: res.data})
         })

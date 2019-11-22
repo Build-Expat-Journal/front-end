@@ -6,7 +6,8 @@ import TripCard from './TripCard';
 
 const TripGrid = (props) => {
   const [trips, setTrip] = useState([])
-
+  let userID = localStorage.getItem('userID')
+  console.log(userID)
   useEffect(() => {
     axios.get('https://bw-expat-journal-ls.herokuapp.com/api/trips')
       .then(response => {

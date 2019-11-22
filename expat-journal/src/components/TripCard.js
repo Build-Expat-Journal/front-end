@@ -6,14 +6,13 @@ import UpdateTripForm from './UpdateTripForm';
 
 const TripCard = (props) => {
   const [selectTrip, setSelectTrip] = useState([]);
-  
+
   const handleClick = e => {
     e.preventDefault();
     props.deleteTrip(props.trips.id)
   };
 
   const clickHandler = e => {
-    e.preventDefault();
     props.fetchTrips(props.trips.id)
     localStorage.setItem('tridId', props.trips.id);
     props.history.push('/update')

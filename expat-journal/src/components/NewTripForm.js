@@ -19,7 +19,6 @@ const NewTripForm = (props) => {
   };
 
   const submitHandler = event => {
-    event.preventDefault();
     props.addTrip(newTrip);
     props.history.push('/trips');
   };
